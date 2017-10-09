@@ -29,7 +29,8 @@ class CreateSiteSettingTable extends Migration
             $table->string('paypal_secret',255)->nullable();
             $table->string('smtp_user',255)->nullable();
             $table->string('smtp_pwd',255)->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
